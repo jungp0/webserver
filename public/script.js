@@ -1,60 +1,92 @@
 var data = {};
 var max = 7.0;
-var url = "/info";
 
 window.onload = ()=>{
     refresh();
 };
 
+
+
 var refresh = async ()=>{
     
-    await fetch(url, {
+    await fetch("/info", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
         }
         }).then(res=>res.json()).then(res=>{
             data = res; 
-            console.log(data);
+            // console.log(data);
         });
         
-        typeof(data);
-
     update();
 }
+
+var pushData = ()=>{
+    // console.log(1);
+    fetch("/info", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+
+        }).then(res=>{
+            if(res.status < 400){
+                refresh();
+            }
+        });
+};
 
 var update = ()=>{
     document.getElementById("mylist").innerHTML = '';
     for (let x in data){
 
-        console.log(x);
+        // console.log(x);
         
         let node = document.createElement("li");
-        // let textNode = document.createTextNode();
-        // node.appendChild(textNode);
-        // document.getElementById("mylist").appendChild(node);
+        node.setAttribute("id",x);
 
         let btn = document.createElement("button");
         btn.innerHTML = x;
-        btn.onclick = ()=>{
+        // btn.onclick = ()=>{
+        //     data[x]["difficulty"] = (Number(data[x]["difficulty"])+1) % max;
+        //     pushData();
+        // };
+        btn.addEventListener("click",()=>{
             data[x]["difficulty"] = (Number(data[x]["difficulty"])+1) % max;
-            update();
-            // console.log(data[x]["difficulty"]);
-        };
+            pushData();
+        });
+
         node.appendChild(btn);
 
         let node2 = document.createElement("span");
+        textNode = document.createTextNode(data[x]["description"]);
+        node2.setAttribute("contenteditable",true);
+        // node2.setAttribute("onfocusout","pushData()");
+        node2.addEventListener("focusout", ()=>{
+            data[x]["description"] = document.getElementById(x).childNodes[1].innerHTML;       
+            // console.log(data[x]["description"]);
+            pushData();
+        });
 
-        textNode = document.createTextNode(data[x]["description"]+data[x]["URL"]);
         node2.appendChild(textNode);
         node.appendChild(node2);
+
+        node2 = document.createElement("a");
+        node2.setAttribute("href",data[x]["url"]);
+        node2.innerHTML = data[x]["url"];
+        node.appendChild(node2);
+
 
         document.getElementById("mylist").appendChild(node);
 
         node2 = document.createElement("meter");
-        console.log(Number(data[x]["difficulty"])/max);
         node2.setAttribute("value", Number(data[x]["difficulty"])/max);
         // node.appendChild(node2);
         document.getElementById("mylist").appendChild(node2);
     }
+
+
 }
