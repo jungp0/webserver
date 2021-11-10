@@ -1,0 +1,11 @@
+{
+  "script": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

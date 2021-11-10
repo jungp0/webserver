@@ -1,0 +1,7 @@
+span {
+    padding-left: 6.4px;
+}
+
+button:focus ~ span{
+    padding-left: 0px;
+}

@@ -1,22 +1,22 @@
 {
     "cookies":{
-        "description":"cookies are small blocks of data created by a web server while a user is browsing a website and placed on the user's computer or other device by the user’s web browser.",
-        "URL":"https://en.wikipedia.org/wiki/HTTP_cookie",
-        "difficulty":"5"
+        "description":"cookies are small blocks of data created by a web server while a user is browsing a website and placed on the user's computer or other device by the user’s web browser. ",
+        "URL":"https://en.wikipedia.org/wiki/HTTP_cookie ",
+        "difficulty":5
     },
     "domain":{
-        "description":"A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet.",
-        "URL":"https://en.wikipedia.org/wiki/Domain_name",
-        "difficulty":"1"
+        "description":"A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet. ",
+        "URL":"https://en.wikipedia.org/wiki/Domain_name ",
+        "difficulty":1
     },
     "seo":{
-        "description":"Search engine optimization (SEO) is the process of improving the quality and quantity of website traffic to a website or a web page from search engines.",
-        "URL":"https://en.wikipedia.org/wiki/Search_engine_optimization",
-        "difficulty":"6"
+        "description":"Search engine optimization (SEO) is the process of improving the quality and quantity of website traffic to a website or a web page from search engines. ",
+        "URL":"https://en.wikipedia.org/wiki/Search_engine_optimization ",
+        "difficulty":6
     },
     "DNS":{
-        "description":"The domain name system (DNS) is a naming database in which internet domain names are located and translated into Internet Protocol (IP) addresses.",
-        "URL":"https://www.techtarget.com/searchnetworking/definition/domain-name-system",
-        "difficulity":"4"
+        "description":"The domain name system (DNS) is a naming database in which internet domain names are located and translated into Internet Protocol (IP) addresses. ",
+        "URL":"https://www.techtarget.com/searchnetworking/definition/domain-name-system ",
+        "difficulty":4
     }
 }
